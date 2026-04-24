@@ -10,5 +10,5 @@ $RECYCLE.BIN/
 *.swo
 *.bak
 
-# Keep repo guidance tracked
-!AGENTS.md
+# Repo guidance is not tracked
+AGENTS.md
