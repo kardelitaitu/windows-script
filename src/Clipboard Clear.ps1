@@ -16,4 +16,4 @@ if ($confirm -ne "YES") {
 
 Set-Clipboard -Value ""
 Write-Host "Clipboard cleared."
-pause
+exit 0

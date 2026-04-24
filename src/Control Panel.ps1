@@ -7,4 +7,5 @@
     License     : MIT
 #>
 
-Start-Process control.exe
+Start-Process explorer.exe "shell:ControlPanelFolder"
+exit 0

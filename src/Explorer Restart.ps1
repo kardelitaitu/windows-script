@@ -17,4 +17,4 @@ if ($confirm -ne "YES") {
 Get-Process explorer -ErrorAction SilentlyContinue | Stop-Process -Force
 Start-Process explorer.exe
 Write-Host "Explorer restarted."
-pause
+exit 0

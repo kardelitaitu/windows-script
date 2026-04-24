@@ -8,3 +8,4 @@
 #>
 
 Start-Process explorer.exe "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+exit 0

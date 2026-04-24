@@ -17,4 +17,4 @@ if ($confirm -ne "YES") {
 ipconfig /release
 ipconfig /renew
 Write-Host "IP address renewed."
-pause
+exit 0
