@@ -57,7 +57,7 @@ windows-script/
 | 8 | `Clean Temp.ps1` | Previews and removes safe temporary files after confirmation. |
 | 9 | `Empty Recycle Bin.ps1` | Shows recycle bin item count and size, then empties it after confirmation. |
 | 10 | `Open Startup Folder.ps1` | Opens the current user's Startup folder. |
-| 11 | `Explorer Restart.ps1` | Restarts Windows Explorer after confirmation. |
+| 11 | `Explorer Restart.ps1` | Restarts Windows Explorer immediately. |
 | 12 | `Clipboard Clear.ps1` | Clears the clipboard after confirmation. |
 | 13 | `Clean Recent Files.ps1` | Previews and removes recent file shortcuts after confirmation. |
 | 14 | `Update Winget.ps1` | Refreshes winget sources and upgrades all packages after confirmation. |

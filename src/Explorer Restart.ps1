@@ -7,13 +7,6 @@
     License     : MIT
 #>
 
-$confirm = Read-Host "Type YES to restart Explorer"
-if ($confirm -ne "YES") {
-    Write-Host "Cancelled."
-    pause
-    exit 0
-}
-
 Get-Process explorer -ErrorAction SilentlyContinue | Stop-Process -Force
 Start-Process explorer.exe
 Write-Host "Explorer restarted."
