@@ -24,16 +24,46 @@ windows-script/
 ├── src/
 │   └── Sleep Timer.ps1
 │   └── Shutdown Timer.ps1
+│   └── Restart Timer.ps1
+│   └── Hibernate Timer.ps1
+│   └── Lock.ps1
+│   └── Flush DNS.ps1
+│   └── Network Reset.ps1
+│   └── Clean Temp.ps1
+│   └── Empty Recycle Bin.ps1
+│   └── Open Startup Folder.ps1
+│   └── Explorer Restart.ps1
+│   └── Clipboard Clear.ps1
+│   └── Clean Recent Files.ps1
+│   └── Update Winget.ps1
+│   └── Renew IP.ps1
+│   └── Control Panel.ps1
 ├── create-shortcut.bat
 ├── README.md
 └── LICENSE
 ```
 
-## Files
+## Scripts
 
-- `src/Sleep Timer.ps1` - interactive sleep timer for Windows
-- `src/Shutdown Timer.ps1` - interactive shutdown timer for Windows
-- `create-shortcut.bat` - creates Start Menu shortcuts for scripts in `src`
+| # | Name | Description |
+|---|---|---|
+| 1 | `Sleep Timer.ps1` | Delays sleep for a chosen amount of time. |
+| 2 | `Shutdown Timer.ps1` | Delays system shutdown for a chosen amount of time. |
+| 3 | `Restart Timer.ps1` | Delays system restart for a chosen amount of time. |
+| 4 | `Hibernate Timer.ps1` | Delays hibernation for a chosen amount of time. |
+| 5 | `Lock.ps1` | Locks the current Windows session. |
+| 6 | `Flush DNS.ps1` | Flushes the local DNS cache. |
+| 7 | `Network Reset.ps1` | Offers common network repair actions. |
+| 8 | `Clean Temp.ps1` | Previews and removes safe temporary files after confirmation. |
+| 9 | `Empty Recycle Bin.ps1` | Shows recycle bin item count and size, then empties it after confirmation. |
+| 10 | `Open Startup Folder.ps1` | Opens the current user's Startup folder. |
+| 11 | `Explorer Restart.ps1` | Restarts Windows Explorer after confirmation. |
+| 12 | `Clipboard Clear.ps1` | Clears the clipboard after confirmation. |
+| 13 | `Clean Recent Files.ps1` | Previews and removes recent file shortcuts after confirmation. |
+| 14 | `Update Winget.ps1` | Refreshes winget sources and upgrades all packages after confirmation. |
+| 15 | `Renew IP.ps1` | Renews the local IP address lease after confirmation. |
+| 16 | `Control Panel.ps1` | Opens the classic Windows Control Panel. |
+| 17 | `create-shortcut.bat` | Creates Start Menu shortcuts for scripts in `src`. |
 
 ## Usage
 
@@ -71,3 +101,7 @@ MIT
 ## Author
 
 Created by `kardelitaitu`
+
+## Icon Credit
+
+Icon author: [kiranshastry](https://www.flaticon.com/authors/kiranshastry)

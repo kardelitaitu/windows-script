@@ -6,7 +6,6 @@ set "startMenu=%AppData%\Microsoft\Windows\Start Menu\Programs"
 set "scripts=%~dp0src"
 set "iconPath=%~dp0icon.ico"
 set "psExe=%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe"
-
 if not exist "%scripts%" (
     echo Source folder not found: "%scripts%"
     exit /b 1
@@ -38,8 +37,16 @@ for %%F in ("%scripts%\*.ps1" "%scripts%\*.bat" "%scripts%\*.cmd") do (
             "$s.WorkingDirectory = '%scripts%'; " ^
             "$s.IconLocation = '%iconPath%,0'; " ^
             "$s.Save()"
+
+        if /I "!name!"=="Update Winget" (
+            powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -Command ^
+                "$bytes = [System.IO.File]::ReadAllBytes('!shortcut!'); " ^
+                "$bytes[0x15] = $bytes[0x15] -bor 0x20; " ^
+                "[System.IO.File]::WriteAllBytes('!shortcut!', $bytes)"
+        )
     )
 )
 
 echo Done.
-pause
+explorer.exe "%startMenu%"
+exit /b 0
