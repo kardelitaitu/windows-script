@@ -12,9 +12,12 @@ This repository is designed to make it easy to run and access custom scripts dir
 - Supports PowerShell (`.ps1`), Batch (`.bat`), and CMD (`.cmd`) scripts.
 - Shortcuts are placed in:
   
+```bash
 C:\ProgramData\Microsoft\Windows\Start Menu
+```
 
 ## 📂 Repository Structure
+
 windows-scripts-helper/
 │
 ├── scripts/
@@ -33,10 +36,12 @@ windows-scripts-helper/
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourname/windows-scripts-helper.git
+   ```
 2. Navigate into the repo:
 
-bash
+```bash
 cd windows-scripts-helper
+```
 Run create-shortcuts.bat as Administrator.
 
 3. Shortcuts will be created in the Start Menu.
