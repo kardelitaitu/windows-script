@@ -72,7 +72,7 @@ windows-script/
 | 23 | `Install Benchmark.ps1` | Installs the benchmark profile: HWiNFO, CPU-Z, GPU-Z, and CrystalDiskMark. |
 | 24 | `Install Chrome.ps1` | Installs Google Chrome with winget. |
 | 25 | `Install Brave.ps1` | Installs Brave Browser with winget. |
-| 26 | `Install Developer.ps1` | Installs a curated developer toolset and dynamically resolves the latest stable Python 3 package. |
+| 26 | `Install Developer.ps1` | Installs a curated developer toolset including Python 3 via winget. |
 | 27 | `Install Media.ps1` | Installs VLC, HandBrake, and FFmpeg. |
 | 28 | `Install Productivity.ps1` | Installs PowerToys, 7-Zip, Notepad++, Obsidian, LibreOffice, and CopyQ. |
 | 29 | `Install Gaming.ps1` | Installs Steam, PowerToys, Afterburner, and optionally RawAccel from the official GitHub release. |

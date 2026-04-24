@@ -15,6 +15,11 @@ $packages = @(
 )
 
 $rawAccelZipUrl = "https://github.com/RawAccelOfficial/rawaccel/releases/download/v1.7.1/RawAccel_v1.7.1.zip"
+$rawAccelPrereqs = @(
+    @{ Name = "Visual C++ 2015-2022 Redistributable (x64)"; Id = "Microsoft.VCRedist.2015+.x64" },
+    @{ Name = "Visual C++ 2015-2022 Redistributable (x86)"; Id = "Microsoft.VCRedist.2015+.x86" },
+    @{ Name = ".NET Framework Developer Pack 4"; Id = "Microsoft.DotNet.Framework.DeveloperPack_4" }
+)
 
 $winget = Get-Command winget -ErrorAction SilentlyContinue
 if (-not $winget) {
@@ -53,6 +58,13 @@ foreach ($package in $packages) {
 Write-Host ""
 $installRawAccel = Read-Host "Type YES to download and install RawAccel too"
 if ($installRawAccel -eq "YES") {
+    Write-Host ""
+    Write-Host "Installing RawAccel prerequisites..."
+    foreach ($package in $rawAccelPrereqs) {
+        Write-Host " - $($package.Name)"
+        winget install -e --id $package.Id --accept-package-agreements --accept-source-agreements
+    }
+
     $tempRoot = Join-Path $env:TEMP "RawAccel"
     $zipPath = Join-Path $tempRoot "RawAccel_v1.7.1.zip"
     $extractPath = Join-Path $tempRoot "RawAccel_v1.7.1"
@@ -76,7 +88,7 @@ if ($installRawAccel -eq "YES") {
     }
 
     Write-Host "Installing RawAccel driver..."
-    Start-Process -FilePath $installer.FullName -Wait
+    Start-Process -FilePath $installer.FullName -Verb RunAs -Wait
     Write-Host "RawAccel installation finished. Restart your computer for the driver to take effect."
 } else {
     Write-Host "RawAccel skipped."

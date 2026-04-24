@@ -7,13 +7,22 @@
     License     : MIT
 #>
 
-$candidates = @(
-    "$env:ProgramFiles\RawAccel\rawaccel.exe",
-    "$env:ProgramFiles(x86)\RawAccel\rawaccel.exe",
-    "$env:LOCALAPPDATA\Programs\RawAccel\rawaccel.exe"
-)
+try {
+    $exe = (Get-Command rawaccel.exe -ErrorAction SilentlyContinue).Source
+} catch {
+    $exe = $null
+}
 
-$exe = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+if (-not $exe) {
+    $candidates = @(
+        "$env:ProgramFiles\RawAccel\rawaccel.exe",
+        "$env:ProgramFiles(x86)\RawAccel\rawaccel.exe",
+        "$env:LOCALAPPDATA\Programs\RawAccel\rawaccel.exe"
+    )
+
+    $exe = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+}
+
 if (-not $exe) {
     Write-Host "RawAccel was not found."
     pause

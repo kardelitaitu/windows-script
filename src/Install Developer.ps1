@@ -17,30 +17,13 @@ $packages = @(
     @{ Name = "Node.js"; Id = "OpenJS.NodeJS" }
 )
 
+$pythonPackageId = "Python.Python.3"
+
 $winget = Get-Command winget -ErrorAction SilentlyContinue
 if (-not $winget) {
     Write-Host "winget was not found on this system."
     pause
     exit 1
-}
-
-function Get-LatestPythonStableId {
-    $search = & winget search --id Python.Python 2>$null
-    if (-not $search) { return $null }
-
-    $matches = foreach ($line in $search) {
-        if ($line -match '^(Python 3)\s+(Python\.Python\.3\.\d+)\s+([0-9]+\.[0-9]+(\.[0-9]+)?)\s+winget$') {
-            [pscustomobject]@{
-                Name    = $matches[1]
-                Id      = $matches[2]
-                Version = [version]$matches[3]
-            }
-        }
-    }
-
-    $stable = $matches | Sort-Object Version -Descending | Select-Object -First 1
-    if ($stable) { return $stable.Id }
-    return $null
 }
 
 Clear-Host
@@ -53,8 +36,7 @@ foreach ($package in $packages) {
     Write-Host " - $($package.Name) [$($package.Id)]"
 }
 
-$pythonId = Get-LatestPythonStableId
-Write-Host " - Python [$pythonId]"
+Write-Host " - Python [$pythonPackageId]"
 Write-Host ""
 Write-Host "Future additions could include:"
 Write-Host " - Postman"
@@ -76,14 +58,9 @@ foreach ($package in $packages) {
     winget install -e --id $package.Id --accept-package-agreements --accept-source-agreements
 }
 
-if ($pythonId) {
-    Write-Host ""
-    Write-Host "Installing Python..."
-    winget install -e --id $pythonId --accept-package-agreements --accept-source-agreements
-} else {
-    Write-Host ""
-    Write-Host "Python package ID could not be resolved."
-}
+Write-Host ""
+Write-Host "Installing Python..."
+winget install -e --id $pythonPackageId --accept-package-agreements --accept-source-agreements
 
 Write-Host ""
 Write-Host "Done."
