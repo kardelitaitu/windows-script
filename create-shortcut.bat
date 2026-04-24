@@ -1,40 +1,31 @@
-
----
-
-### ⚡ `create-shortcuts.bat`
-
-This batch file scans the `scripts` folder and creates shortcuts in the Start Menu.
-
-```bat
 @echo off
-setlocal enabledelayedexpansion
+setlocal EnableExtensions EnableDelayedExpansion
 
-:: Target Start Menu folder
-set "startMenu=C:\ProgramData\Microsoft\Windows\Start Menu"
+rem Create Start Menu shortcuts for scripts in the repo's src folder.
+set "startMenu=%ProgramData%\Microsoft\Windows\Start Menu"
+set "scripts=%~dp0src"
 
-:: Source scripts folder
-set "scripts=%~dp0scripts"
+if not exist "%scripts%" (
+    echo Source folder not found: "%scripts%"
+    exit /b 1
+)
 
-echo Creating shortcuts for scripts in %scripts% ...
-echo Shortcuts will be placed in %startMenu%
+echo Creating shortcuts from "%scripts%"
+echo Target folder: "%startMenu%"
 
-:: Loop through all supported extensions
-for %%f in ("%scripts%\*.ps1" "%scripts%\*.bat" "%scripts%\*.cmd") do (
-    if exist "%%f" (
-        set "file=%%~nxf"
-        set "name=%%~nf"
-        set "target=%%f"
+for %%F in ("%scripts%\*.ps1" "%scripts%\*.bat" "%scripts%\*.cmd") do (
+    if exist "%%~fF" (
+        set "name=%%~nF"
+        set "target=%%~fF"
         set "shortcut=%startMenu%\!name!.lnk"
 
         echo Creating shortcut: !shortcut!
-
-        :: Use PowerShell to create the shortcut
-        powershell -NoLogo -NoProfile -Command ^
-            "$ws = New-Object -ComObject WScript.Shell; ^
-             $s = $ws.CreateShortcut('!shortcut!'); ^
-             $s.TargetPath = '!target!'; ^
-             $s.WorkingDirectory = '%scripts%'; ^
-             $s.Save()"
+        powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -Command ^
+            "$ws = New-Object -ComObject WScript.Shell; " ^
+            "$s = $ws.CreateShortcut('!shortcut!'); " ^
+            "$s.TargetPath = '!target!'; " ^
+            "$s.WorkingDirectory = '%scripts%'; " ^
+            "$s.Save()"
     )
 )
 

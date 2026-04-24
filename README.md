@@ -1,61 +1,67 @@
 # Windows Scripts Helper
 
-A curated collection of useful Windows helper scripts (`.ps1`, `.bat`, `.cmd`, etc.).  
-This repository is designed to make it easy to run and access custom scripts directly from the Windows Start Menu.
+<p align="center">
+  <img src="https://img.shields.io/badge/Windows-Scripts%20Helper-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows Scripts Helper badge">
+</p>
+
+<p align="center">
+  A small Windows automation repo for reusable scripts and Start Menu shortcuts.
+</p>
 
 ---
 
-## ✨ Features
-- Centralized collection of Windows automation and helper scripts.
-- Automatic shortcut creation for all scripts in the repo.
-- Shortcuts are named after the script (without extension).
-- Supports PowerShell (`.ps1`), Batch (`.bat`), and CMD (`.cmd`) scripts.
-- Shortcuts are placed in:
-  
-```bash
-C:\ProgramData\Microsoft\Windows\Start Menu
-```
+## What this repo does
 
-## 📂 Repository Structure
-```
+- Keeps utility scripts in one place
+- Generates Start Menu shortcuts automatically
+- Supports PowerShell, Batch, and CMD scripts
+- Keeps the setup simple and easy to extend
+
+## Current layout
+
+```text
 windows-script/
 ├── src/
-│   ├── Sleep Timer.ps1
-│   ├── another-tool.bat
-│   ├── example script A.cmd
-│   ├── example script B.cmd
-│   └── ...
-├── create-shortcuts.bat
+│   └── sleepTimer.ps1
+├── create-shortcut.bat
 ├── README.md
 └── LICENSE
 ```
 
----
+## Files
 
-## 🚀 Usage
-1. Clone this repository:
-   
+- `src/sleepTimer.ps1` - interactive sleep timer for Windows
+- `create-shortcut.bat` - creates Start Menu shortcuts for scripts in `src`
+
+## Usage
+
+1. Clone the repo.
+
 ```bash
 git clone https://github.com/kardelitaitu/windows-script
-```
-
-2. Navigate into the repo:
-
-```bash
 cd windows-script
 ```
-    
-3. Run create-shortcuts.bat as Administrator.
 
-4. Shortcuts will be created in the Start Menu.
+2. Run `create-shortcut.bat` as Administrator.
 
+3. Start Menu shortcuts will be created for every supported script in `src`.
 
-License
-This project is licensed under the MIT License.
-You are free to use, modify, and distribute these scripts with attribution.
+## Notes
 
+- Shortcuts are created in `C:\ProgramData\Microsoft\Windows\Start Menu`
+- Script names become shortcut names automatically
+- Add new scripts to `src` and rerun the batch file
 
-Author
-Created by kardelitaitu  
-Version: 1.0.0  
-Date: April 24, 2026
+## Roadmap
+
+- Add more helper scripts
+- Add a safer install/uninstall flow
+- Add validation for shortcut generation
+
+## License
+
+MIT
+
+## Author
+
+Created by `kardelitaitu`
