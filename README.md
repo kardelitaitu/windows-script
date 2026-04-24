@@ -22,7 +22,8 @@
 ```text
 windows-script/
 ├── src/
-│   └── sleepTimer.ps1
+│   └── Sleep Timer.ps1
+│   └── Shutdown Timer.ps1
 ├── create-shortcut.bat
 ├── README.md
 └── LICENSE
@@ -30,7 +31,8 @@ windows-script/
 
 ## Files
 
-- `src/sleepTimer.ps1` - interactive sleep timer for Windows
+- `src/Sleep Timer.ps1` - interactive sleep timer for Windows
+- `src/Shutdown Timer.ps1` - interactive shutdown timer for Windows
 - `create-shortcut.bat` - creates Start Menu shortcuts for scripts in `src`
 
 ## Usage
@@ -42,14 +44,18 @@ git clone https://github.com/kardelitaitu/windows-script
 cd windows-script
 ```
 
-2. Run `create-shortcut.bat` as Administrator.
+2. Run `create-shortcut.bat`
 
 3. Start Menu shortcuts will be created for every supported script in `src`.
 
 ## Notes
 
-- Shortcuts are created in `C:\ProgramData\Microsoft\Windows\Start Menu`
+- Shortcuts are created in the current user's Start Menu programs folder
+```
+C:\Users\username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+```
 - Script names become shortcut names automatically
+- PowerShell scripts are launched through `powershell.exe` so they run instead of opening in an editor
 - Add new scripts to `src` and rerun the batch file
 
 ## Roadmap

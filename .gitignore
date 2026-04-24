@@ -1,0 +1,14 @@
+# Windows temp files
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# PowerShell and editor noise
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Keep repo guidance tracked
+!AGENTS.md
