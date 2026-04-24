@@ -17,39 +17,37 @@ C:\ProgramData\Microsoft\Windows\Start Menu
 ```
 
 ## 📂 Repository Structure
-
-windows-scripts-helper/
-│
+```
+windows-script/
 ├── scripts/
-│   ├── SleepTimer.ps1
+│   ├── Sleep Timer.ps1
 │   ├── another-tool.bat
-│   ├── example.cmd
+│   ├── example script A.cmd
+│   ├── example script B.cmd
 │   └── ...
-│
 ├── create-shortcuts.bat
 ├── README.md
 └── LICENSE
+```
 
 ---
 
 ## 🚀 Usage
 1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourname/windows-scripts-helper.git
-   ```
+   
+```bash
+git clone https://github.com/kardelitaitu/windows-script
+```
+
 2. Navigate into the repo:
 
 ```bash
-cd windows-scripts-helper
+cd windows-script
 ```
-Run create-shortcuts.bat as Administrator.
+    
+3. Run create-shortcuts.bat as Administrator.
 
-3. Shortcuts will be created in the Start Menu.
-Example:
-
-Script: Sleep Timer.ps1
-
-Shortcut: Sleep Timer
+4. Shortcuts will be created in the Start Menu.
 
 
 License
