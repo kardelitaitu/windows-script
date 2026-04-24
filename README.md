@@ -19,7 +19,7 @@ C:\ProgramData\Microsoft\Windows\Start Menu
 ## 📂 Repository Structure
 ```
 windows-script/
-├── scripts/
+├── src/
 │   ├── Sleep Timer.ps1
 │   ├── another-tool.bat
 │   ├── example script A.cmd
